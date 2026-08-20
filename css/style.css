@@ -4046,55 +4046,65 @@ header .fade-in-up{
 
 
 
+
+
 /* ==================================================
-   完全最終調整スタイル：ボタン完璧中央揃え・白文字・Q&A常時全開
+   完全安定版：ヘッダー100%常時表示 ＆ ボタン完全画面中央配置
    ================================================== */
 
-/* 1. ボタンのみ切れ防止＆完全中央揃え */
-.button01 {
-  margin: 40px auto !important;
+/* 1. ヘッダー要素の消え防止・100%確実な常時表示 */
+header,
+header .header-back,
+header .image1,
+header .image2,
+header .fade-in-up,
+header img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* 2. ボタン（.button01）の完全画面中央配置 (画面の中央線にピタッと揃う) */
+.button01, 
+a.button01 {
   display: block !important;
-  text-align: center !important;
-  line-height: 1.3 !important;
-  border: solid 4px #ffffff !important;
   width: calc(100% - 32px) !important;
-  max-width: 440px !important;
-  padding: 18px 25px 18px 15px !important;
+  max-width: 340px !important;
+  margin-top: 35px !important;
+  margin-bottom: 35px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 16px 15px !important;
   background: linear-gradient(to bottom, #F2B2B2, #D06969) !important;
   font-family: "Noto Serif JP", "Shippori Mincho", serif !important;
   color: #FFFFFF !important;
   border-radius: 60px !important;
-  font-size: 20px !important;
+  font-size: 19px !important;
   font-weight: bold !important;
   text-decoration: none !important;
   position: relative !important;
   box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.2) !important;
-  opacity: 1 !important;
-  visibility: visible !important;
   box-sizing: border-box !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  text-align: center !important;
   float: none !important;
   clear: both !important;
 }
 
-/* 「無料」「復縁相談」の文字もすべて白文字に変更 */
 .button01 .big {
-  font-size: 24px !important;
+  font-size: 23px !important;
   font-weight: bold !important;
   color: #FFFFFF !important;
 }
 
-@media screen and (max-width:540px) {
-  .button01 {
-    margin: 30px auto !important;
-    max-width: 320px !important;
-    padding: 14px 20px 14px 10px !important;
-    font-size: 16px !important;
-    border: solid 3px #ffffff !important;
+@media screen and (min-width: 541px) {
+  .button01, a.button01 {
+    max-width: 440px !important;
+    font-size: 22px !important;
+    padding: 20px 25px !important;
   }
   .button01 .big {
-    font-size: 19px !important;
+    font-size: 27px !important;
   }
 }
 
@@ -4113,7 +4123,7 @@ header .fade-in-up{
   border-top: 2.5px solid #FFFFFF !important;
   transform: translateY(-50%) rotate(45deg) !important;
   top: 50% !important;
-  right: 22px !important;
+  right: 20px !important;
 }
 
 @media screen and (max-width:540px) {
@@ -4126,141 +4136,15 @@ header .fade-in-up{
   }
 }
 
-
-
-
-
-
-
-/* 2. Q&A セクション：2枚目のスクショと100%同一の大きな「白い下向き三角形（▼）」 */
-
-/* 重複していた元の::beforeを完全に非表示 */
-.aco-content.content-q::before,
-.aco-content.content-q.q::before {
-  display: none !important;
-  content: none !important;
+/* ボタン親要素もテキスト中央揃えに徹底強制 */
+.container,
+.sub-container,
+.minimini-container,
+section {
+  text-align: center;
 }
 
-.aco-content.content-a {
-  display: none !important;
-  overflow: hidden;
-}
-
-.aco-content.content-q {
-  cursor: pointer;
-  position: relative;
-  user-select: none;
-  padding-right: 50px !important;
-}
-
-/* 2枚目スクショ通りのクッキリ大きい白い逆三角形（▼） */
-.aco-content.content-q::after {
-  content: "" !important;
-  position: absolute !important;
-  right: 25px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 0 !important;
-  height: 0 !important;
-  border-style: solid !important;
-  border-width: 16px 12px 0 12px !important;
-  border-color: #ffffff transparent transparent transparent !important;
-  transition: transform 0.25s ease !important;
-}
-
-@media screen and (max-width:540px) {
-  .aco-content.content-q::after {
-    right: 18px !important;
-    border-width: 14px 10px 0 10px !important;
-  }
-}
-
-/* 開いた時（is-open）は上向き三角（▲）に回転 */
-.aco-block.is-open .aco-content.content-a {
-  display: flex !important;
-}
-
-.aco-block.is-open .aco-content.content-q::after {
-  transform: translateY(-50%) rotate(180deg) !important;
-}
-
-
-
-/* ==================================================
-   スマホビュー用 ヘッダー特別アニメーション
-   ================================================== */
-
-/* スマホ表示時 (<= 540px) の段階アニメーション設定 */
-@media screen and (max-width: 540px) {
-  /* ① 一番最初: 「彼と復縁したい...」 (ゆっくりめフェードイン) */
-  header .image2,
-  header img.image2 {
-    opacity: 0 !important;
-    visibility: visible !important;
-    animation: fadeInHeaderSlow 0.9s ease 0.2s forwards !important;
-  }
-
-  /* ② 二番目: 「このままでは彼は私を...」 (ゆっくりめフェードイン) */
-  header .image1,
-  header img.image1 {
-    opacity: 0 !important;
-    visibility: visible !important;
-    animation: fadeInHeaderSlow 0.9s ease 1.1s forwards !important;
-  }
-
-  /* ③ 三番目: 「本当に今の私でも復縁できるの...？ 自己肯定感の上げ方です」 (下からウィーンとスライドしてポンと登場) */
-  header .fade-in-up,
-  header img.fade-in-up {
-    opacity: 0 !important;
-    visibility: visible !important;
-    animation: slideUpPopFast 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.25) 2.0s forwards !important;
-  }
-}
-
-/* PC表示時 (> 540px) のスムーズなアニメーション */
-@media screen and (min-width: 541px) {
-  header .image2 {
-    opacity: 0 !important;
-    animation: fadeInHeaderSlow 0.8s ease 0.2s forwards !important;
-  }
-  header .image1 {
-    opacity: 0 !important;
-    animation: fadeInHeaderSlow 0.8s ease 1.0s forwards !important;
-  }
-  header .fade-in-up {
-    opacity: 0 !important;
-    animation: slideUpPopFast 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.25) 1.8s forwards !important;
-  }
-}
-
-@keyframes fadeInHeaderSlow {
-  0% {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* 下からウィーンと上がってスライド＆ポンと飛び出すイージング */
-@keyframes slideUpPopFast {
-  0% {
-    opacity: 0;
-    transform: translateY(70px);
-  }
-  75% {
-    opacity: 1;
-    transform: translateY(-6px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* その他の可視化・全体設定 */
+/* その他の要素可視化 */
 .diagonal-line, .book {
   opacity: 1 !important;
   visibility: visible !important;
