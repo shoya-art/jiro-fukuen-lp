@@ -4184,8 +4184,84 @@ header .fade-in-up{
   transform: translateY(-50%) rotate(180deg) !important;
 }
 
-/* 3. ヘッダー・要素の完全可視化設定 */
-.image1, .image2, .fade-in-up, .diagonal-line, .book {
+
+
+/* ==================================================
+   スマホビュー用 ヘッダー特別アニメーション
+   ================================================== */
+
+/* スマホ表示時 (<= 540px) の段階アニメーション設定 */
+@media screen and (max-width: 540px) {
+  /* ① 一番最初: 「彼と復縁したい...」 (ゆっくりめフェードイン) */
+  header .image2,
+  header img.image2 {
+    opacity: 0 !important;
+    visibility: visible !important;
+    animation: fadeInHeaderSlow 0.9s ease 0.2s forwards !important;
+  }
+
+  /* ② 二番目: 「このままでは彼は私を...」 (ゆっくりめフェードイン) */
+  header .image1,
+  header img.image1 {
+    opacity: 0 !important;
+    visibility: visible !important;
+    animation: fadeInHeaderSlow 0.9s ease 1.1s forwards !important;
+  }
+
+  /* ③ 三番目: 「本当に今の私でも復縁できるの...？ 自己肯定感の上げ方です」 (下からウィーンとスライドしてポンと登場) */
+  header .fade-in-up,
+  header img.fade-in-up {
+    opacity: 0 !important;
+    visibility: visible !important;
+    animation: slideUpPopFast 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.25) 2.0s forwards !important;
+  }
+}
+
+/* PC表示時 (> 540px) のスムーズなアニメーション */
+@media screen and (min-width: 541px) {
+  header .image2 {
+    opacity: 0 !important;
+    animation: fadeInHeaderSlow 0.8s ease 0.2s forwards !important;
+  }
+  header .image1 {
+    opacity: 0 !important;
+    animation: fadeInHeaderSlow 0.8s ease 1.0s forwards !important;
+  }
+  header .fade-in-up {
+    opacity: 0 !important;
+    animation: slideUpPopFast 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.25) 1.8s forwards !important;
+  }
+}
+
+@keyframes fadeInHeaderSlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 下からウィーンと上がってスライド＆ポンと飛び出すイージング */
+@keyframes slideUpPopFast {
+  0% {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* その他の可視化・全体設定 */
+.diagonal-line, .book {
   opacity: 1 !important;
   visibility: visible !important;
 }
