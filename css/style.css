@@ -4137,3 +4137,241 @@ header .fade-in-up{
 .aco-block.is-open .aco-content.content-a {
   display: flex !important;
 }
+
+
+
+/* ==================================================
+   修正＆改良スタイル：全ボタン可視化・高速アニメ・ヘッダー完全復元
+   ================================================== */
+
+/* 1. ヘッダー画像の完全可視化＆スムーズなフェードイン */
+.header-back {
+  position: relative;
+  width: 100%;
+}
+
+.header-back img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.header-back img.image2,
+.header-back img.fade-in.image2 {
+  opacity: 0;
+  animation: fadeInFast 0.4s ease 0.1s forwards !important;
+}
+
+.header-back img.image1,
+.header-back img.fade-in.image1 {
+  opacity: 0;
+  animation: fadeInFast 0.4s ease 0.4s forwards !important;
+}
+
+.header-back img.fade-in-up {
+  opacity: 0;
+  animation: fadeInUpFast 0.4s ease 0.7s forwards !important;
+}
+
+@keyframes fadeInFast {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUpFast {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. パッパッパッと高速表示されるスクロールフェードアニメーション */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out !important;
+  will-change: opacity, transform;
+}
+
+.scroll-fade.is-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Section1 の高速タイムラグ (パッパッパッと動く) */
+.section1 .mini-container img.scroll-fade:nth-child(1) { transition-delay: 0.04s !important; }
+.section1 .mini-container img.scroll-fade:nth-child(2) { transition-delay: 0.08s !important; }
+.section1 .mini-container img.scroll-fade:nth-child(3) { transition-delay: 0.12s !important; }
+.section1 .mini-container img.scroll-fade:nth-child(4) { transition-delay: 0.16s !important; }
+.section1 .mini-container img.scroll-fade:nth-child(5) { transition-delay: 0.20s !important; }
+
+/* 3. クッキリ目立つ高CVRのLINE追加ボタン（全箇所共通） */
+a.button01, 
+.button01 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 90% !important;
+  max-width: 500px !important;
+  margin: 30px auto !important;
+  padding: 18px 24px !important;
+  background: linear-gradient(135deg, #06C755 0%, #00B900 100%) !important;
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  border-radius: 50px !important;
+  text-decoration: none !important;
+  box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+}
+
+@media screen and (max-width: 540px) {
+  a.button01, 
+  .button01 {
+    font-size: 17px !important;
+    padding: 15px 18px !important;
+    width: 92% !important;
+  }
+}
+
+a.button01:hover, 
+.button01:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 12px 25px rgba(6, 199, 85, 0.5) !important;
+}
+
+/* LINEマークアイコン */
+a.button01::before, 
+.button01::before {
+  content: "LINE" !important;
+  display: inline-block !important;
+  background: #FFFFFF !important;
+  color: #06C755 !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  padding: 3px 8px !important;
+  border-radius: 12px !important;
+  margin-right: 10px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ボタン光線アニメーション */
+a.button01::after, 
+.button01::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 80%
+  ) !important;
+  transform: rotate(30deg) !important;
+  animation: shineBtn 3s infinite !important;
+}
+
+@keyframes shineBtn {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* 4. Q&A アコーディオン化スタイル */
+.aco-content.content-a {
+  display: none !important;
+  overflow: hidden;
+}
+
+.aco-content.content-q {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  padding-right: 40px !important;
+}
+
+.aco-content.content-q::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.aco-block.is-open .aco-content.content-q::after {
+  transform: translateY(-20%) rotate(-135deg);
+}
+
+.aco-block.is-open .aco-content.content-a {
+  display: flex !important;
+}
+
+/* 画面下部固定 LINEバー */
+.fixed-line-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-line-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #06C755 0%, #00B900 100%);
+  color: #FFFFFF !important;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 40px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(6, 199, 85, 0.4);
+  transition: transform 0.2s ease;
+}
+
+@media screen and (max-width: 540px) {
+  .fixed-line-btn {
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+}
+
+.fixed-line-icon {
+  background: #FFFFFF;
+  color: #06C755;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+/* ボディの下部に固定バー分のパディングを確保 */
+body {
+  padding-bottom: 70px !important;
+}
