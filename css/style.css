@@ -4235,3 +4235,130 @@ a.button01::after,
 body {
   padding-bottom: 70px !important;
 }
+
+/* ==================================================
+   最高コンバージョン仕様 プレミアムLINEボタン
+   ================================================== */
+
+a.button01, 
+.button01,
+.button02 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 90% !important;
+  max-width: 520px !important;
+  margin: 35px auto !important;
+  padding: 18px 25px !important;
+  background: linear-gradient(135deg, #00C300 0%, #00B900 100%) !important;
+  color: #FFFFFF !important;
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  border-radius: 60px !important;
+  text-decoration: none !important;
+  box-shadow: 0 10px 25px rgba(0, 195, 0, 0.45), 0 2px 4px rgba(0,0,0,0.1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  border: 2px solid #FFFFFF !important;
+}
+
+@media screen and (max-width: 540px) {
+  a.button01, 
+  .button01,
+  .button02 {
+    font-size: 17px !important;
+    padding: 16px 18px !important;
+    width: 92% !important;
+  }
+}
+
+a.button01:hover, 
+.button01:hover,
+.button02:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 15px 30px rgba(0, 195, 0, 0.55) !important;
+}
+
+/* LINEアイコンバッジ */
+a.button01::before, 
+.button01::before,
+.button02::before {
+  content: "LINE" !important;
+  display: inline-block !important;
+  background: #FFFFFF !important;
+  color: #00C300 !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  padding: 3px 9px !important;
+  border-radius: 20px !important;
+  margin-right: 12px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ボタン表面を走る光の波 */
+a.button01::after, 
+.button01::after,
+.button02::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  ) !important;
+  transform: rotate(30deg) !important;
+  animation: shineBtn 2.8s infinite !important;
+}
+
+/* 下部固定LINEバー */
+.fixed-line-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-line-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, #00C300 0%, #00B900 100%);
+  color: #FFFFFF !important;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 50px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 15px rgba(0, 195, 0, 0.4);
+  transition: transform 0.2s ease;
+  border: 1px solid #FFFFFF;
+}
+
+.fixed-line-icon {
+  background: #FFFFFF;
+  color: #00C300;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
