@@ -844,5 +844,18 @@
 
     <!-- 画面下部固定 LINEボタン -->
     
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const qElements = document.querySelectorAll(".aco-content.content-q");
+  qElements.forEach(q => {
+    q.addEventListener("click", () => {
+      const parentBlock = q.closest(".aco-block");
+      parentBlock.classList.toggle("is-open");
+    });
+  });
+});
+</script>
+
 </body>
 </html>

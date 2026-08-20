@@ -4126,16 +4126,40 @@ header .fade-in-up{
   }
 }
 
-/* 2. Q&A セクション：最初から全開（オープン）状態 */
+
+
+/* 2. Q&A セクション：最初は質問のみ、タップで開閉（トグル）動作 */
 .aco-content.content-a {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  height: auto !important;
+  display: none !important;
+  overflow: hidden;
+}
+
+.aco-content.content-q {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  padding-right: 35px !important;
 }
 
 .aco-content.content-q::after {
-  display: none !important;
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.aco-block.is-open .aco-content.content-a {
+  display: flex !important;
+}
+
+.aco-block.is-open .aco-content.content-q::after {
+  transform: translateY(-20%) rotate(-135deg);
 }
 
 /* 3. ヘッダー・要素の完全可視化設定 */
