@@ -4128,7 +4128,9 @@ header .fade-in-up{
 
 
 
-/* 2. Q&A セクション：最初は質問のみ、タップで開閉（トグル）動作 */
+
+
+/* 2. Q&A セクション：右側に「白い下向きの三角アイコン」、タップで開閉動作 */
 .aco-content.content-a {
   display: none !important;
   overflow: hidden;
@@ -4138,28 +4140,38 @@ header .fade-in-up{
   cursor: pointer;
   position: relative;
   user-select: none;
-  padding-right: 35px !important;
+  padding-right: 45px !important;
 }
 
+/* 白い下向きの三角アイコン */
 .aco-content.content-q::after {
   content: "";
   position: absolute;
-  right: 15px;
+  right: 25px;
   top: 50%;
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid #555;
-  border-bottom: 2px solid #555;
-  transform: translateY(-70%) rotate(45deg);
-  transition: transform 0.2s ease;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 8px 0 8px;
+  border-color: #ffffff transparent transparent transparent;
+  transition: transform 0.25s ease;
 }
 
+@media screen and (max-width:540px) {
+  .aco-content.content-q::after {
+    right: 15px;
+    border-width: 10px 7px 0 7px;
+  }
+}
+
+/* 開いている状態 (is-open) の時は上向きに回転 */
 .aco-block.is-open .aco-content.content-a {
   display: flex !important;
 }
 
 .aco-block.is-open .aco-content.content-q::after {
-  transform: translateY(-20%) rotate(-135deg);
+  transform: translateY(-50%) rotate(180deg);
 }
 
 /* 3. ヘッダー・要素の完全可視化設定 */
