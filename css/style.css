@@ -4130,7 +4130,17 @@ header .fade-in-up{
 
 
 
-/* 2. Q&A セクション：右側に「白い下向きの三角アイコン」、タップで開閉動作 */
+
+
+/* 2. Q&A セクション：2枚目のスクショと100%同一の大きな「白い下向き三角形（▼）」 */
+
+/* 重複していた元の::beforeを完全に非表示 */
+.aco-content.content-q::before,
+.aco-content.content-q.q::before {
+  display: none !important;
+  content: none !important;
+}
+
 .aco-content.content-a {
   display: none !important;
   overflow: hidden;
@@ -4140,38 +4150,38 @@ header .fade-in-up{
   cursor: pointer;
   position: relative;
   user-select: none;
-  padding-right: 45px !important;
+  padding-right: 50px !important;
 }
 
-/* 白い下向きの三角アイコン */
+/* 2枚目スクショ通りのクッキリ大きい白い逆三角形（▼） */
 .aco-content.content-q::after {
-  content: "";
-  position: absolute;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 12px 8px 0 8px;
-  border-color: #ffffff transparent transparent transparent;
-  transition: transform 0.25s ease;
+  content: "" !important;
+  position: absolute !important;
+  right: 25px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-style: solid !important;
+  border-width: 16px 12px 0 12px !important;
+  border-color: #ffffff transparent transparent transparent !important;
+  transition: transform 0.25s ease !important;
 }
 
 @media screen and (max-width:540px) {
   .aco-content.content-q::after {
-    right: 15px;
-    border-width: 10px 7px 0 7px;
+    right: 18px !important;
+    border-width: 14px 10px 0 10px !important;
   }
 }
 
-/* 開いている状態 (is-open) の時は上向きに回転 */
+/* 開いた時（is-open）は上向き三角（▲）に回転 */
 .aco-block.is-open .aco-content.content-a {
   display: flex !important;
 }
 
 .aco-block.is-open .aco-content.content-q::after {
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg) !important;
 }
 
 /* 3. ヘッダー・要素の完全可視化設定 */
