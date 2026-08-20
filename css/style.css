@@ -4042,45 +4042,77 @@ header .fade-in-up{
 
 
 
-/* 元サイト通りのシンプルなボタン01デザイン */
+
+
+/* 元サイトと100%完全一致するオリジナルボタン01デザイン */
 .button01 {
+  margin: 50px auto 0 auto !important;
   display: block !important;
-  width: 90% !important;
-  max-width: 500px !important;
-  margin: 30px auto !important;
-  padding: 16px 20px !important;
-  background-color: #06C755 !important;
-  color: #FFFFFF !important;
-  font-size: 20px !important;
-  font-weight: bold !important;
   text-align: center !important;
-  border-radius: 40px !important;
+  line-height: 1.2 !important;
+  border: solid 5px #ffffff !important;
+  width: 90% !important;
+  max-width: 520px !important;
+  padding: 24px 20px !important;
+  background: linear-gradient(to bottom, #F2B2B2, #D06969) !important;
+  font-family: "Noto Serif JP", "Shippori Mincho", serif !important;
+  color: #FFFFFF !important;
+  border-radius: 62px !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
   text-decoration: none !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
-  line-height: 1.4 !important;
+  position: relative !important;
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.22) !important;
   opacity: 1 !important;
   visibility: visible !important;
+  box-sizing: border-box !important;
 }
 
 .button01 .big {
-  font-size: 26px !important;
+  font-size: 28px !important;
   font-weight: bold !important;
-  color: #FFF000 !important;
+  color: #FFFF00 !important;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width:540px) {
   .button01 {
-    font-size: 16px !important;
-    padding: 14px 16px !important;
-    width: 92% !important;
+    margin: 40px auto 0 auto !important;
+    max-width: 360px !important;
+    padding: 18px 15px !important;
+    font-size: 19px !important;
+    border: solid 4px #ffffff !important;
   }
   .button01 .big {
-    font-size: 22px !important;
+    font-size: 23px !important;
   }
 }
 
 .button01:hover {
-  opacity: 0.9 !important;
+  background: linear-gradient(to bottom, #f08282, #C73D3D) !important;
+  opacity: 0.95 !important;
+}
+
+/* 右側の矢印 (>) マーク */
+.button01::before {
+  position: absolute !important;
+  content: "" !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-right: 3px solid #FFFFFF !important;
+  border-top: 3px solid #FFFFFF !important;
+  transform: translateY(-50%) rotate(45deg) !important;
+  top: 50% !important;
+  right: 30px !important;
+}
+
+@media screen and (max-width:540px) {
+  .button01::before {
+    right: 20px !important;
+    width: 11px !important;
+    height: 11px !important;
+    border-right: 2.5px solid #FFFFFF !important;
+    border-top: 2.5px solid #FFFFFF !important;
+  }
 }
 
 /* ヘッダー・要素の完全可視化設定 */
