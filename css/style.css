@@ -4050,13 +4050,19 @@ header .fade-in-up{
 
 
 
+
+
 /* ==================================================
-   送っていただいた5枚のスクショと100%完全一致する決定版スタイル
+   完全原因撃退スタイル：.fadeinによる非表示・見切れを100%阻止
    ================================================== */
 
-/* 1. ボタン：完全にスクリーンショット通りの配置・余白・デザイン */
+/* .fadein クラスによる opacity: 0 および translateX(-100px) をボタンから完全に無効化 */
 .button01, 
-a.button01 {
+a.button01,
+.fadein.button01 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
   display: block !important;
   width: calc(100% - 40px) !important;
   max-width: 340px !important;
@@ -4079,6 +4085,7 @@ a.button01 {
   float: none !important;
   clear: both !important;
   border: 4px solid #FFFFFF !important;
+  z-index: 100 !important;
 }
 
 .button01 .big {
@@ -4088,7 +4095,7 @@ a.button01 {
 }
 
 @media screen and (min-width: 541px) {
-  .button01, a.button01 {
+  .button01, a.button01, .fadein.button01 {
     max-width: 440px !important;
     font-size: 22px !important;
     padding: 20px 25px !important;
@@ -4128,33 +4135,7 @@ a.button01 {
   }
 }
 
-/* 2. フッター：1枚目スクショと100%同一のカラー＆配置 */
-footer {
-  background-color: #D98888 !important;
-  padding: 25px 15px !important;
-  text-align: center !important;
-}
-
-footer .footer-flex {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-bottom: 10px !important;
-}
-
-footer .footer-flex a {
-  color: #FFFFFF !important;
-  font-size: 14px !important;
-  text-decoration: none !important;
-}
-
-footer p {
-  color: #FFFFFF !important;
-  font-size: 13px !important;
-  margin: 0 !important;
-}
-
-/* 3. ヘッダー・要素の常時可視化保証 */
+/* 全表示保証 */
 header, header .header-back, header .image1, header .image2, header .fade-in-up, header img,
 .diagonal-line, .book {
   opacity: 1 !important;
