@@ -4037,3 +4037,103 @@ header .fade-in-up{
     right: 10px; /* 左側の位置調整 */
   }
 }
+
+/* ==================================================
+   追加カスタムスタイル：アニメーション・Q&Aアコーディオン
+   ================================================== */
+
+/* 1. FV (ファーストビュー) アニメーション設定 */
+.header-back {
+  position: relative;
+}
+
+.header-back img.image2,
+.header-back img.fade-in.image2 {
+  opacity: 0 !important;
+  animation: fadeInFV 1.1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards !important;
+}
+
+.header-back img.image1,
+.header-back img.fade-in.image1 {
+  opacity: 0 !important;
+  animation: fadeInFV 1.1s cubic-bezier(0.25, 1, 0.5, 1) 1.3s forwards !important;
+}
+
+.header-back img.fade-in-up {
+  opacity: 0 !important;
+  animation: fadeInUpFV 1.1s cubic-bezier(0.25, 1, 0.5, 1) 2.4s forwards !important;
+}
+
+@keyframes fadeInFV {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUpFV {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. スクロール時のふわっとフェードアニメーション */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-fade.is-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Section1 の個別タイムラグ設定 */
+.section1 .mini-container img.scroll-fade:nth-child(1) { transition-delay: 0.1s; }
+.section1 .mini-container img.scroll-fade:nth-child(2) { transition-delay: 0.3s; }
+.section1 .mini-container img.scroll-fade:nth-child(3) { transition-delay: 0.5s; }
+.section1 .mini-container img.scroll-fade:nth-child(4) { transition-delay: 0.7s; }
+.section1 .mini-container img.scroll-fade:nth-child(5) { transition-delay: 0.9s; }
+
+/* 3. Q&A アコーディオン化のスタイル */
+.aco-content.content-a {
+  display: none !important;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.aco-content.content-q {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  padding-right: 40px !important;
+  transition: background-color 0.2s ease;
+}
+
+/* アコーディオン開閉矢印アイコン */
+.aco-content.content-q::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* アコーディオンが開いている状態 (is-open) の矢印 */
+.aco-block.is-open .aco-content.content-q::after {
+  transform: translateY(-20%) rotate(-135deg);
+}
+
+.aco-block.is-open .aco-content.content-a {
+  display: flex !important;
+}
