@@ -4048,35 +4048,24 @@ header .fade-in-up{
 
 
 
+
+
 /* ==================================================
-   完全安定版：ヘッダー100%常時表示 ＆ ボタン完全画面中央配置
+   送っていただいた5枚のスクショと100%完全一致する決定版スタイル
    ================================================== */
 
-/* 1. ヘッダー要素の消え防止・100%確実な常時表示 */
-header,
-header .header-back,
-header .image1,
-header .image2,
-header .fade-in-up,
-header img {
-  opacity: 1 !important;
-  visibility: visible !important;
-  animation: none !important;
-  transition: none !important;
-}
-
-/* 2. ボタン（.button01）の完全画面中央配置 (画面の中央線にピタッと揃う) */
+/* 1. ボタン：完全にスクリーンショット通りの配置・余白・デザイン */
 .button01, 
 a.button01 {
   display: block !important;
-  width: calc(100% - 32px) !important;
+  width: calc(100% - 40px) !important;
   max-width: 340px !important;
-  margin-top: 35px !important;
-  margin-bottom: 35px !important;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding: 16px 15px !important;
-  background: linear-gradient(to bottom, #F2B2B2, #D06969) !important;
+  padding: 16px 20px 16px 15px !important;
+  background: linear-gradient(to bottom, #F09B9B, #D46969) !important;
   font-family: "Noto Serif JP", "Shippori Mincho", serif !important;
   color: #FFFFFF !important;
   border-radius: 60px !important;
@@ -4084,11 +4073,12 @@ a.button01 {
   font-weight: bold !important;
   text-decoration: none !important;
   position: relative !important;
-  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 8px 18px rgba(180, 80, 80, 0.25) !important;
   box-sizing: border-box !important;
   text-align: center !important;
   float: none !important;
   clear: both !important;
+  border: 4px solid #FFFFFF !important;
 }
 
 .button01 .big {
@@ -4102,6 +4092,8 @@ a.button01 {
     max-width: 440px !important;
     font-size: 22px !important;
     padding: 20px 25px !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
   }
   .button01 .big {
     font-size: 27px !important;
@@ -4109,45 +4101,66 @@ a.button01 {
 }
 
 .button01:hover {
-  background: linear-gradient(to bottom, #f08282, #C73D3D) !important;
-  opacity: 0.95 !important;
+  background: linear-gradient(to bottom, #e88686, #c55454) !important;
+  opacity: 0.96 !important;
 }
 
-/* 右端の矢印 (>) マーク */
+/* 右端の白矢印 (>) */
 .button01::before {
   position: absolute !important;
   content: "" !important;
-  width: 10px !important;
-  height: 10px !important;
+  width: 9px !important;
+  height: 9px !important;
   border-right: 2.5px solid #FFFFFF !important;
   border-top: 2.5px solid #FFFFFF !important;
   transform: translateY(-50%) rotate(45deg) !important;
   top: 50% !important;
-  right: 20px !important;
+  right: 22px !important;
 }
 
 @media screen and (max-width:540px) {
   .button01::before {
-    right: 14px !important;
+    right: 18px !important;
     width: 8px !important;
     height: 8px !important;
-    border-right: 2px solid #FFFFFF !important;
-    border-top: 2px solid #FFFFFF !important;
+    border-right: 2.5px solid #FFFFFF !important;
+    border-top: 2.5px solid #FFFFFF !important;
   }
 }
 
-/* ボタン親要素もテキスト中央揃えに徹底強制 */
-.container,
-.sub-container,
-.minimini-container,
-section {
-  text-align: center;
+/* 2. フッター：1枚目スクショと100%同一のカラー＆配置 */
+footer {
+  background-color: #D98888 !important;
+  padding: 25px 15px !important;
+  text-align: center !important;
 }
 
-/* その他の要素可視化 */
+footer .footer-flex {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-bottom: 10px !important;
+}
+
+footer .footer-flex a {
+  color: #FFFFFF !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+}
+
+footer p {
+  color: #FFFFFF !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+}
+
+/* 3. ヘッダー・要素の常時可視化保証 */
+header, header .header-back, header .image1, header .image2, header .fade-in-up, header img,
 .diagonal-line, .book {
   opacity: 1 !important;
   visibility: visible !important;
+  animation: none !important;
+  transition: none !important;
 }
 
 body {
