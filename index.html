@@ -839,47 +839,7 @@
     <script src="js/fade-in.js"></script>
     <!-- フェードインスクリプト -->
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. スクロール監視とタイムラグフェードイン
-  const fadeSelectors = [
-    ".headline01-blue",
-    ".mini-container img",
-    ".diagonal-line",
-    ".book",
-    ".section3 h4",
-    ".speech-bubble",
-    ".headline04-blue",
-    ".flex-01-parent",
-    ".QA"
-  ];
-  
-  fadeSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.classList.add("scroll-fade");
-    });
-  });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-active");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".scroll-fade").forEach(el => observer.observe(el));
-
-  // 2. Q&A アコーディオン機能
-  const qElements = document.querySelectorAll(".aco-content.content-q");
-  qElements.forEach(q => {
-    q.addEventListener("click", () => {
-      const parentBlock = q.closest(".aco-block");
-      parentBlock.classList.toggle("is-open");
-    });
-  });
-});
-</script>
 
 
     <!-- 画面下部固定 LINEボタン -->
